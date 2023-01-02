@@ -1,0 +1,45 @@
+{
+	"name": "scss-template",
+	"version": "1.0.0",
+	"description": "Basic SCSS template including file watching and browser sync",
+	"main": "index.js",
+	"scripts": {
+		"compile": "npm-run-all --parallel compile:*",
+		"compile:sass": "sass src/scss/main.scss:dist/css/style.css",
+		"copy": "npm-run-all --parallel copy:*",
+		"copy:html": "copyfiles -u 1 './src/*.html' dist",
+		"copy:js": "copyfiles -u 1 './src/js/**/*' dist",
+		"copy:assets": "copyfiles -u 1 './src/assets/**/*' dist",
+		"watch": "npm-run-all --parallel watch:*",
+		"watch:sass": "sass --watch src/scss/main.scss:dist/css/style.css",
+		"watch:html": "onchange 'src/*.html' -- npm run copy:html",
+		"watch:js": "onchange 'src/js/*.js' -- npm run copy:js",
+		"watch:assets": "onchange 'src/assets/' -- npm run copy:assets",
+		"serve": "browser-sync  start --port 3002 --server dist --files dist",
+		"start": "npm-run-all --parallel serve watch",
+		"prebuild": "rimraf dist",
+		"build": "npm-run-all compile copy ",
+		"postbuild": "postcss dist/css/*.css -u autoprefixer postcss-minify -r --no-map"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wolfgangdotdev/scss-template.git"
+	},
+	"keywords": [],
+	"author": "Wolfgang Vandenberg",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/wolfgangdotdev/scss-template/issues"
+	},
+	"homepage": "https://github.com/wolfgangdotdev/scss-template#readme",
+	"devDependencies": {
+		"autoprefixer": "^10.4.13",
+		"browser-sync": "^2.27.11",
+		"copyfiles": "^2.4.1",
+		"npm-run-all": "^4.1.5",
+		"onchange": "^7.1.0",
+		"postcss-cli": "^10.1.0",
+		"postcss-minify": "^1.1.0",
+		"rimraf": "^3.0.2"
+	}
+}

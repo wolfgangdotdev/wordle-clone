@@ -1,0 +1,17 @@
+@use "sass:math";
+
+@function rem($px) {
+	@if math.is-unitless($px) {
+		@return math.div($px, 16) * 1rem;
+	} @else {
+		@error "rem(): parameter should be a unitless number";
+	}
+}
+
+@function em($px) {
+	@if math.is-unitless($px) {
+		@return math.div($px, 16) * 1em;
+	} @else {
+		@error "em(): parameter should be a unitless number";
+	}
+}
