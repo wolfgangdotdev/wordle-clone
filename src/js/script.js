@@ -25,6 +25,10 @@ function updateColors(row, index, evaluation) {
 
 function evaulateGuess() {
 	if (letters.length !== 5) return;
+	if (!wordlist.includes(letters)) {
+		console.log("not a word");
+		return;
+	}
 
 	const row = document.querySelectorAll(`[data-row="${rowIndex}"]>.guess__tile`);
 
@@ -104,7 +108,19 @@ function handleKeypresses() {
 
 let letters = "";
 let rowIndex = 0;
-let testWord = "leave";
+let testWord = "";
 let gameWon = false;
+let answerlist;
+fetch("../assets/json/answerlist.json")
+	.then((response) => response.json())
+	.then((json) => {
+		testWord = json[Math.floor(Math.random() * json.length)];
+	});
+let wordlist;
+fetch("../assets/json/wordlist.json")
+	.then((response) => response.json())
+	.then((json) => {
+		wordlist = json;
+	});
 
 handleKeypresses();
