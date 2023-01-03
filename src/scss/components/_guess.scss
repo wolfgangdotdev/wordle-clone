@@ -1,0 +1,95 @@
+@use "../util/" as *;
+
+.game {
+	margin-bottom: 1rem;
+}
+
+.guess {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: rem(5);
+	margin-bottom: rem(5);
+
+	&__tile {
+		--animation-time: 0.2s;
+		--animation-flip: flipDown var(--animation-time) var(--animation-delay) forwards,
+			changeColor 0s calc(var(--animation-time) + var(--animation-delay)) forwards,
+			flipUp var(--animation-time) calc(var(--animation-time) + var(--animation-delay))
+				forwards;
+
+		width: rem(56);
+		height: rem(56);
+		border: rem(2) solid var(--border-inactive);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(32);
+
+		&-letter {
+			border: rem(2) solid var(--border-letter);
+			animation: pop 0.1s linear 1;
+		}
+
+		&-absent {
+			--background-color: var(--bg-absent);
+			animation: var(--animation-flip);
+		}
+
+		&-present {
+			--background-color: var(--bg-present);
+			animation: var(--animation-flip);
+		}
+
+		&-correct {
+			--background-color: var(--bg-correct);
+
+			animation: var(--animation-flip);
+		}
+	}
+}
+
+@keyframes pop {
+	50% {
+		transform: scale(1.1);
+	}
+}
+
+@keyframes flipDown {
+	100% {
+		transform: rotateX(90deg);
+	}
+}
+
+@keyframes changeColor {
+	100% {
+		background-color: var(--background-color);
+		transform: rotateX(-90deg);
+		border: none;
+	}
+}
+
+@keyframes flipUp {
+	100% {
+		transform: rotateX(0deg);
+	}
+}
+
+[data-animation-delay="0"] {
+	--animation-delay: calc(var(--animation-time) * 0);
+}
+
+[data-animation-delay="1"] {
+	--animation-delay: calc(var(--animation-time) * 2);
+}
+
+[data-animation-delay="2"] {
+	--animation-delay: calc(var(--animation-time) * 4);
+}
+
+[data-animation-delay="3"] {
+	--animation-delay: calc(var(--animation-time) * 6);
+}
+
+[data-animation-delay="4"] {
+	--animation-delay: calc(var(--animation-time) * 8);
+}

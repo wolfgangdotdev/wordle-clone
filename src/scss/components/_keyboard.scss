@@ -1,0 +1,53 @@
+@use "../util/" as *;
+
+.keyboard {
+	font-size: rem(16);
+
+	&__row {
+		display: flex;
+		justify-content: stretch;
+		width: min(rem(485), 100vw - 1rem);
+		gap: rem(6);
+
+		&:not(:last-child) {
+			margin-bottom: rem(8);
+		}
+	}
+
+	&__key {
+		flex: 1;
+		background-color: var(--bg-keyboard);
+		color: inherit;
+		border: none;
+		padding: rem(17) 0;
+		text-transform: uppercase;
+		border-radius: rem(4);
+		cursor: pointer;
+
+		&-wider {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex: 1.5;
+		}
+
+		&-absent {
+			background-color: var(--bg-absent);
+			border: none;
+		}
+
+		&-present {
+			background-color: var(--bg-present);
+			border: none;
+		}
+
+		&-correct {
+			background-color: var(--bg-correct);
+			border: none;
+		}
+	}
+
+	&__spacer {
+		flex: 0.5;
+	}
+}

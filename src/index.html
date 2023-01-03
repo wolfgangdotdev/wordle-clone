@@ -3,9 +3,122 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="./css/style.css" />
 		<script src="./js/script.js" defer></script>
-		<title>Document</title>
+		<title>Wordle</title>
 	</head>
-	<body></body>
+	<body>
+		<header class="header">
+			<div class="wrapper">
+				<h1>Wordle</h1>
+			</div>
+		</header>
+		<section class="game">
+			<div class="wrapper">
+				<div class="guess" data-row="0">
+					<div class="guess__tile" data-animation-delay="0"></div>
+					<div class="guess__tile" data-animation-delay="1"></div>
+					<div class="guess__tile" data-animation-delay="2"></div>
+					<div class="guess__tile" data-animation-delay="3"></div>
+					<div class="guess__tile" data-animation-delay="4"></div>
+				</div>
+				<div class="guess" data-row="1">
+					<div class="guess__tile" data-animation-delay="0"></div>
+					<div class="guess__tile" data-animation-delay="1"></div>
+					<div class="guess__tile" data-animation-delay="2"></div>
+					<div class="guess__tile" data-animation-delay="3"></div>
+					<div class="guess__tile" data-animation-delay="4"></div>
+				</div>
+				<div class="guess" data-row="2">
+					<div class="guess__tile" data-animation-delay="0"></div>
+					<div class="guess__tile" data-animation-delay="1"></div>
+					<div class="guess__tile" data-animation-delay="2"></div>
+					<div class="guess__tile" data-animation-delay="3"></div>
+					<div class="guess__tile" data-animation-delay="4"></div>
+				</div>
+				<div class="guess" data-row="3">
+					<div class="guess__tile" data-animation-delay="0"></div>
+					<div class="guess__tile" data-animation-delay="1"></div>
+					<div class="guess__tile" data-animation-delay="2"></div>
+					<div class="guess__tile" data-animation-delay="3"></div>
+					<div class="guess__tile" data-animation-delay="4"></div>
+				</div>
+				<div class="guess" data-row="4">
+					<div class="guess__tile" data-animation-delay="0"></div>
+					<div class="guess__tile" data-animation-delay="1"></div>
+					<div class="guess__tile" data-animation-delay="2"></div>
+					<div class="guess__tile" data-animation-delay="3"></div>
+					<div class="guess__tile" data-animation-delay="4"></div>
+				</div>
+				<div class="guess" data-row="5">
+					<div class="guess__tile" data-animation-delay="0"></div>
+					<div class="guess__tile" data-animation-delay="1"></div>
+					<div class="guess__tile" data-animation-delay="2"></div>
+					<div class="guess__tile" data-animation-delay="3"></div>
+					<div class="guess__tile" data-animation-delay="4"></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="keyboard">
+			<div class="keyboard__row">
+				<button class="keyboard__key" type="button" data-key="q">q</button>
+				<button class="keyboard__key" type="button" data-key="w">w</button>
+				<button class="keyboard__key" type="button" data-key="e">e</button>
+				<button class="keyboard__key" type="button" data-key="r">r</button>
+				<button class="keyboard__key" type="button" data-key="t">t</button>
+				<button class="keyboard__key" type="button" data-key="y">y</button>
+				<button class="keyboard__key" type="button" data-key="u">u</button>
+				<button class="keyboard__key" type="button" data-key="i">i</button>
+				<button class="keyboard__key" type="button" data-key="o">o</button>
+				<button class="keyboard__key" type="button" data-key="p">p</button>
+			</div>
+			<div class="keyboard__row">
+				<div class="keyboard__spacer"></div>
+				<button class="keyboard__key" type="button" data-key="a">a</button>
+				<button class="keyboard__key" type="button" data-key="s">s</button>
+				<button class="keyboard__key" type="button" data-key="d">d</button>
+				<button class="keyboard__key" type="button" data-key="f">f</button>
+				<button class="keyboard__key" type="button" data-key="g">g</button>
+				<button class="keyboard__key" type="button" data-key="h">h</button>
+				<button class="keyboard__key" type="button" data-key="j">j</button>
+				<button class="keyboard__key" type="button" data-key="k">k</button>
+				<button class="keyboard__key" type="button" data-key="l">l</button>
+				<div class="keyboard__spacer"></div>
+			</div>
+			<div class="keyboard__row">
+				<button class="keyboard__key keyboard__key-wider" type="button" data-key="enter">
+					&#9166;
+				</button>
+				<button class="keyboard__key" type="button" data-key="z">z</button>
+				<button class="keyboard__key" type="button" data-key="x">x</button>
+				<button class="keyboard__key" type="button" data-key="c">c</button>
+				<button class="keyboard__key" type="button" data-key="v">v</button>
+				<button class="keyboard__key" type="button" data-key="b">b</button>
+				<button class="keyboard__key" type="button" data-key="n">n</button>
+				<button class="keyboard__key" type="button" data-key="m">m</button>
+				<button
+					class="keyboard__key keyboard__key-wider"
+					type="button"
+					data-key="backspace"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						height="24"
+						viewBox="0 0 24 24"
+						width="24"
+						class="game-icon"
+						data-testid="icon-backspace"
+					>
+						<path
+							fill="white"
+							d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"
+						></path>
+					</svg>
+				</button>
+			</div>
+		</section>
+	</body>
 </html>
+
+<!-- .keyboard__row>button.keyboard__key[type="button" data-key]*10 -->

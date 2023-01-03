@@ -16,7 +16,7 @@
 		"watch:js": "onchange 'src/js/*.js' -- npm run copy:js",
 		"watch:assets": "onchange 'src/assets/' -- npm run copy:assets",
 		"serve": "browser-sync  start --port 3002 --server dist --files dist",
-		"start": "npm-run-all --parallel serve watch",
+		"start": "npm-run-all compile copy --parallel serve watch",
 		"prebuild": "rimraf dist",
 		"build": "npm-run-all compile copy ",
 		"postbuild": "postcss dist/css/*.css -u autoprefixer postcss-minify -r --no-map"

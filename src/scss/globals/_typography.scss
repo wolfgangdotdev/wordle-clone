@@ -1,14 +1,19 @@
-@use '../util' as *;
-
-h1,
-h2,
-h3 {
-	margin-top: 0;
-	line-height: 1.1;
-}
+@use "../util" as *;
 
 a,
 a:visited,
 a:active {
 	text-decoration: none;
+}
+
+body {
+	font-family: var(--font-body);
+	color: var(--clr-primary);
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: rem(36);
+	letter-spacing: 0.2rem;
 }
