@@ -69,7 +69,7 @@ function evaluateWinLoss() {
 		letters = "";
 		rowIndex += 1;
 	}
-	if (rowIndex > 0) {
+	if (rowIndex > 5) {
 		loseGame();
 	}
 }
