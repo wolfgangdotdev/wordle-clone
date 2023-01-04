@@ -1,0 +1,28 @@
+@use "../util/" as *;
+
+.keyboard {
+	position: relative;
+
+	&__reset {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: var(--bg-message);
+		color: var(--clr-message);
+		text-transform: none;
+		padding: rem(8) rem(16);
+		border-radius: rem(4);
+		z-index: 100;
+		font-size: rem(24);
+		border: none;
+		border-radius: 6px;
+		cursor: pointer;
+	}
+
+	&__row {
+		&.transparent-50 .keyboard__key {
+			cursor: default;
+		}
+	}
+}

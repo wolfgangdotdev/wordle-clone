@@ -9,6 +9,12 @@
 	grid-template-columns: repeat(5, 1fr);
 	gap: rem(5);
 	margin-bottom: rem(5);
+	--jiggle-distance: 3px;
+	--jiggle-duration: 0.5s;
+
+	&-jiggling {
+		animation: jiggle var(--jiggle-duration) forwards;
+	}
 
 	&__tile {
 		--animation-time: 0.2s;
@@ -45,6 +51,9 @@
 
 			animation: var(--animation-flip);
 		}
+		&-bouncing {
+			animation: bounce ease-in-out 0.5s calc(var(--animation-delay) / 4) forwards;
+		}
 	}
 }
 
@@ -71,6 +80,34 @@
 @keyframes flipUp {
 	100% {
 		transform: rotateX(0deg);
+	}
+}
+
+@keyframes jiggle {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(var(--jiggle-distance));
+	}
+	50% {
+		transform: translateX(calc(var(--jiggle-distance) * -1));
+	}
+	75% {
+		transform: translateX(var(--jiggle-distance));
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes bounce {
+	50% {
+		transform: translateY(-15px);
+	}
+
+	100% {
+		transform: translateY(0px);
 	}
 }
 

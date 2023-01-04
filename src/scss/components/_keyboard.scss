@@ -2,6 +2,7 @@
 
 .keyboard {
 	font-size: rem(16);
+	touch-action: manipulation;
 
 	&__row {
 		display: flex;
